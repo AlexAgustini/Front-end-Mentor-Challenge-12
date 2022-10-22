@@ -1,0 +1,317 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* STYLES AND FONTS */
+
+:root {
+    --gradient:linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    --paleblue: hsl(243, 100%, 93%);
+    --grayishblue:hsl(229, 7%, 55%);
+    --darkblue:hsl(228, 56%, 26%);
+    --verydarkblue:hsl(229, 57%, 11%);
+
+    --ff-raleway:'Raleway', sans-serif;
+}
+
+.clr-grayishblue {
+    color:var(--grayishblue)
+}
+
+.clr-paleblue {
+    color:var(--paleblue)
+}
+
+.clr-white {
+    color:white
+}
+
+html {
+    font-size:14px;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+/* NORMAL CSS */
+
+body {
+    font-family: var(--ff-raleway);
+    background-image: url(bg-mobile.png);
+    display:grid;
+    place-items:center
+}
+
+.container {
+    width:min(90vw, 1100px);
+    display:flex;
+    flex-direction: column;
+    gap:1em;
+    margin:5em auto;
+    justify-content: center;
+    height:fit-content
+}
+
+header {
+    background-color: var(--darkblue);
+    padding-block:2.5em;
+    padding-left:2.5em;
+    border-top-right-radius:90px
+}
+
+.header-inner {
+    display:flex;
+    flex-direction: column;
+    gap:2.5em;
+    width:45%
+}
+
+.header-flex {
+    display:flex;
+    gap:1em;
+}
+
+.header-flex img {
+    background-color: var(--verydarkblue);
+    padding:.9em;
+    border-radius:10px
+}
+
+
+
+main {
+    background-color: var(--darkblue);
+    padding:2.5em 2.5em 3em 2.5em;
+    position: relative;
+    border-radius:15px;
+}
+
+.main-inner {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.storage-bar {
+    width:100%;
+    background-color: var(--verydarkblue);
+    height:20px;
+    border-radius:100px;
+    padding:.2em;
+    margin-top:1em
+}
+
+.storage-bar-inner {
+    width:70%;
+    background-image:var(--gradient);
+    height:100%;
+    border-radius:100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.storage-bar-point {
+    width:11px;
+    border-radius:100%;
+    background-color: var(--paleblue);
+    height:11px;
+    margin-right:.1em
+}
+
+.storage-parameters {
+    display:flex;
+    justify-content: space-between;
+    width:100%
+}
+
+h5 {
+    line-height:0
+}
+
+.memory-card {
+    position: absolute;
+    background-color: white;
+    padding-left:1.5em;
+    padding-right:1em;
+    padding-block:.4em;
+    display:flex;
+    align-items: center;
+    gap:.8em;
+    border-radius:10px;
+    left:0;
+    right:0;
+    margin:0em auto;
+    width:55%;
+    bottom:-17%;
+    justify-content: center;
+}
+
+.memory-card-arrow {
+    display:none
+}
+
+.memory-card h1 {
+    font-size:2.7rem;
+    color:var(--verydarkblue);
+}
+
+.memory-card p {
+    letter-spacing: 1px;
+    font-size:0.9rem
+}
+
+@media (min-width:50em) {
+    body {
+        background-image: url(bg-desktop.png);
+        background-size: cover;
+        background-position:bottom;
+    }
+    
+    .container {
+        flex-direction: row;
+    }
+
+    header {
+        width:30%
+    }
+    
+    main {
+        width:60%;
+        display:flex;
+        align-items: center;
+        height:10%;
+        align-self:flex-end;
+        padding:2em;
+
+    }
+
+    .main-inner {
+        width:100%;
+        align-items:start
+    }
+
+    .memory-card {
+        width:27%;
+        bottom:90%;
+        left:65%;
+    }
+
+    .memory-card p {
+        z-index: 10;
+    }
+
+    .memory-card-arrow {
+        display:block;
+        position:absolute;
+        bottom:-40%;
+        right:0;
+        border-top:30px solid transparent;
+        border-bottom:30px solid transparent;
+        border-left:30px solid transparent;
+        border-right:30px solid white;
+    }
+
+}
+
+/* .memory-card {
+    position: absolute;
+    background-color: white;
+    padding-left:1.5em;
+    padding-right:1em;
+    padding-block:.4em;
+    display:flex;
+    align-items: center;
+    gap:.8em;
+    border-radius:10px;
+    left:0;
+    right:0;
+    margin:0em auto;
+    width:55%;
+    bottom:-17%
+    
+} */
+
+
+
+
+
+
+
+
